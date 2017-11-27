@@ -1,0 +1,62 @@
+<krpano>
+
+	<!--
+		调试阶段使用,上线前请删除
+	-->
+
+	<action name="add_all_the_time_tooltip_for_VR_JS">
+	jsget(h_name,spotname);
+	 txtadd(tooltipname, 'vrtooltip_', get(h_name));
+	 addhotspot(get(tooltipname)); 
+	 set(hotspot[get(tooltipname)].type,text);
+	 copy(hotspot[get(tooltipname)].edge,hotspot[get(h_name)].edge);
+	 copy(hotspot[get(tooltipname)].distorted,hotspot[get(h_name)].distorted);
+	 copy(hotspot[get(tooltipname)].ath,hotspot[get(h_name)].ath);
+	 copy(hotspot[get(tooltipname)].atv,hotspot[get(h_name)].atv);
+	 set(hotspot[get(tooltipname)].oy,-50);
+	 set(hotspot[get(tooltipname)].ox,0);
+	 set(hotspot[get(tooltipname)].vcenter,true);
+	 set(hotspot[get(tooltipname)].padding,10);
+	 set(hotspot[get(tooltipname)].bg,true);
+	 set(hotspot[get(tooltipname)].bgcolor,0x000000);
+	 set(hotspot[get(tooltipname)].bgroundedge,5);
+	 set(hotspot[get(tooltipname)].bgalpha,0.65);
+	 set(hotspot[get(tooltipname)].bgborder,0);
+	 set(hotspot[get(tooltipname)].bgshadow,'0 0 0 0x000000 0');
+	 set(hotspot[get(tooltipname)].css,'text-align:left; color:#FFFFFF; font-family:MicrosoftYahei; font-size:20px;');
+	 if(device.mobile,set(hotspot[get(tooltipname)].css,'text-align:center; color:#FFFFFF; font-family:MicrosoftYahei; font-weight:bold; font-size:16px;');
+	 );
+	 set(hotspot[get(tooltipname)].txtshadow,'0 0 0 0x000000 0');
+
+	 copy(hotspot[get(tooltipname)].html,hotspot[get(h_name)].text);
+ 
+	 set(hotspot[get(tooltipname)].enabled,false); 
+ 
+	 if(lp_running == false,
+	 	set(hotspot[get(tooltipname)].visible,true); 
+	 	, 	
+	 	if(!webvr.isenabled,
+	 	  if(lp_running == true,
+		 	set(hotspot[get(tooltipname)].visible,false); 
+		 	set(hotspot[get(tooltipname)].mark2,true);
+	 	   );
+	 	  );
+	 	);
+ 
+	 if(hotspot[get(h_name)].normal == false, 
+ 
+		set(hotspot[get(tooltipname)].normal,false);
+		set(hotspot[get(tooltipname)].onloaded,
+			if(webvr.isenabled,
+				set(visible,false);
+				,	
+				if(lp_running == false OR lp_running == null OR lp_running === null,  
+					set(visible,true);
+					);
+				);
+	       );
+ 
+	 	);
+</action>
+
+</krpano>
