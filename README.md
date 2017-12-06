@@ -10,6 +10,7 @@
 - 集成常用热点属性：大小（scale）、透明度（opacity）、旋转(rotate)、3D属性（rx、ry、rz）、平移（ox、oy）;
 - 热点事件自定义。可指定跳转场景或自定义；
 - 支持热点文字；
-- 所有属性设置均可视化实时显示；   
+- 所有属性设置均可视化实时显示；
+
 [预览Demo](http://www.nanhaibo.com/bbt_tech/panowork/panos_editor_v1.3beta/editor.html)
 
